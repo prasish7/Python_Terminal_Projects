@@ -1,0 +1,25 @@
+[
+    {
+        "name": "anorith",
+        "id": 347,
+        "type": [
+            "rock",
+            "bug"
+        ],
+        "abilities": [
+            "battle-armor",
+            "swift-swim"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 95,
+            "defense": 50,
+            "special-attack": 40,
+            "special-defense": 50,
+            "speed": 75
+        },
+        "height": 7,
+        "weight": 125,
+        "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/347.png"
+    }
+]
