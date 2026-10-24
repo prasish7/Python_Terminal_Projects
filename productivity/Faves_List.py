@@ -1,4 +1,7 @@
 import json
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "favslist.json"
 
 def add_item(faves_list, item):
     faves_list.append(item)
@@ -30,11 +33,11 @@ def comment_item(faves_list, comment):
             print(f"{idx}. {item}")
 
 def save_item(faves_list , file):
-    with open("he.json", 'w') as f:
+    with open(DATA_FILE, 'w') as f:
         json.dump(faves_list, f)
 
 def load_item(file):
-    with open("he.json", 'r') as f:
+    with open(DATA_FILE, 'r') as f:
         return json.load(f)
 
 def main():
@@ -96,13 +99,13 @@ def main():
          print(f"Your Comment is {comment}")
          print("-----------------------------")
      elif choice == 6:
-         save_item(faves_list , "he.json")
+         save_item(faves_list, DATA_FILE)
          print("Faves List Saved")
      elif choice == 7 :
          is_running = False
          print("Exiting Faves List App. Goodbye!")
      elif choice == 8:
-         faves_list = load_item("he.json")
+         faves_list = load_item(DATA_FILE)
          print("-----------------------------")
          print(faves_list)
          print("Faves List Loaded")

@@ -1,4 +1,5 @@
 import sys
+from pathlib import Path
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QHBoxLayout  
 from PyQt5.QtCore import QTimer, QTime, Qt 
 from PyQt5.QtGui import QFont ,QFontDatabase
@@ -49,7 +50,9 @@ class StopWatch(QWidget):
         self.stopTimer.clicked.connect(self.stop)
         self.resetTimer.clicked.connect(self.reset)
         self.timer.timeout.connect(self.update_display)
-        font = QFontDatabase.addApplicationFont("DS-DIGIT.TTF")
+        font = QFontDatabase.addApplicationFont(
+            str(Path(__file__).resolve().parent / "DS-DIGIT.TTF")
+        )
         FONT_FAMILY = QFontDatabase.applicationFontFamilies(font)[0]
         MY_FONT = QFont(FONT_FAMILY, 48)
         self.time_label.setFont(MY_FONT)

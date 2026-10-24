@@ -1,4 +1,7 @@
 import json
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "Recipe.json"
 
 class RecipeBook:
     def __init__(self):
@@ -38,7 +41,7 @@ class RecipeBook:
             print(" Recipe not found")
 
     def save_recipes(self,filename):
-         with open("Recipe.json" , "w") as f:
+         with open(DATA_FILE, "w") as f:
              json.dump(self.recipes, f, indent = 4)
              
     def load_recipes(self, filename):
@@ -52,7 +55,7 @@ class RecipeBook:
 
 def main():
     book = RecipeBook()
-    book.load_recipes("Recipe.json")
+    book.load_recipes(DATA_FILE)
 
     while True:
         print("Wellcome to Coking Recipes Book")
@@ -71,7 +74,7 @@ def main():
         elif choice == 4 :
             book.remove_recipes()
         elif choice == 5 :
-            book.save_recipes("Recipe.json")
+            book.save_recipes(DATA_FILE)
             break
         else:
             print("Invalid Number, Please Check")

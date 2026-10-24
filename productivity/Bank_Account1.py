@@ -1,14 +1,17 @@
 import json
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "bank_data.json"
 balance = 0
 deposit = 0
 withdraw = 0
 
 def save_data():
-    with open('bank_data.json', 'w') as file:
+    with open(DATA_FILE, 'w') as file:
         data = {'balance': balance, 'deposit': deposit, 'withdraw': withdraw}
         json.dump(data, file)
 try:
-    with open('bank_data.json', 'r') as file:
+    with open(DATA_FILE, 'r') as file:
         data = json.load(file)
         balance = data.get('balance', 0)
         deposit = data.get('deposit', 0)
@@ -53,7 +56,7 @@ while isRunning:
 
     elif choice == 4:
         
-        with open('bank_data.json', 'w') as file:
+        with open(DATA_FILE, 'w') as file:
             data = {'balance': balance, 'deposit': deposit, 'withdraw': withdraw}
             json.dump(data, file)
         isRunning = False

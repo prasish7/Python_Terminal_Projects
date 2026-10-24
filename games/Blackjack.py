@@ -6,6 +6,7 @@ user_cards = random.sample(card, 2)
 computer_cards = random.sample(card, 2)
 user_sum = sum(user_cards)
 computer_sum = sum(computer_cards)
+print("----------Welcome to Blackjack!----------")
 print (f"{user_cards[0]}, {user_cards[1]} (Total: {user_sum})")
 print (f"{computer_cards[0]}, hidden (Total : ?)")
 isRunning = True

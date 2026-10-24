@@ -1,4 +1,5 @@
 import sys
+import os
 import requests
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QLineEdit
 from PyQt5.QtCore import Qt
@@ -76,13 +77,13 @@ class WeatherApp(QWidget):
         self.get_weather_button.clicked.connect(self.fetch_weather)
 
     def fetch_weather(self): 
-        api_key = 'REVOKED_KEY_REMOVED_FROM_HISTORY'
+        api_key = 'ec4a156bb7d9b5c2616fdc7fd50d8a80'
         city = self.city_input.text()
         base_url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
         print ("Fetching weather...")
 
         try:
-            response = requests.get(base_url)
+            response = requests.get(base_url, timeout=10)
             response.raise_for_status()
             data = response.json()
             
@@ -140,8 +141,6 @@ class WeatherApp(QWidget):
                     self.display_error(f"HTTP Error: {response.status_code}")
                     self.display_error(f"HTTP Error: {response.status_code}")
             
-        except requests.exceptions.RequestException:
-            self.display_error("Network error: \n Please check your internet connection")
         except requests.exceptions.Timeout:
             self.display_error("Request timed out: \n The server is taking too long to respond")
         except requests.exceptions.TooManyRedirects:

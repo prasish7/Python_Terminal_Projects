@@ -1,12 +1,15 @@
 import json
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "tasks.json"
 
 def save_tasks(tasks):
-    with open('tasks.json', 'w') as file:
+    with open(DATA_FILE, 'w') as file:
         json.dump(tasks, file)
 
 def load_tasks():
     try:
-        with open('tasks.json', 'r') as file:
+        with open(DATA_FILE, 'r') as file:
             return json.load(file)
     except FileNotFoundError:
         return []

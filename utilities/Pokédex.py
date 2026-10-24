@@ -1,6 +1,9 @@
 import requests
 import random
 import json
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "pokedex.json"
 
 class Pokemon():
     def __init__(self, name, id, type, abilities, stats, height , weight, sprite_url):
@@ -100,7 +103,7 @@ class Pokedex():
             
 def main():
     pokedex = Pokedex()
-    pokedex.load_pokedex("pokedex.json")
+    pokedex.load_pokedex(DATA_FILE)
     while True:
         print("Welcome to the Pokedex")
         print("1. Search Pokemon by Name/ID")
@@ -114,7 +117,7 @@ def main():
         elif choice == '2':
             pokedex.random_pokemon()
         elif choice == '3':
-            pokedex.save_pokedex("pokedex.json")
+            pokedex.save_pokedex(DATA_FILE)
             print("Exiting Pokedex. Goodbye!")
             break
         else:

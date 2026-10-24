@@ -1,5 +1,8 @@
 import csv
 import datetime
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "expenses.csv"
 
 expense = []
 
@@ -34,7 +37,7 @@ def view_total_exp():
     print(f"\nTotal Expenses: {total}")
 
 def save_file():
-    with open("expenses.csv", "w", newline="") as csvfile:
+    with open(DATA_FILE, "w", newline="") as csvfile:
         fieldnames = ["date", "amount", "category"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -43,7 +46,7 @@ def save_file():
 
 def load_file():
     try:
-        with open("expenses.csv", "r") as csvfile:
+        with open(DATA_FILE, "r") as csvfile:
             reader = csv.DictReader(csvfile)
             expense = []
             for row in reader:

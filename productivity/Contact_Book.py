@@ -1,4 +1,7 @@
 import json
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "contact.json"
 
 class ContactBook:
     def __init__(self):
@@ -41,12 +44,12 @@ class ContactBook:
            print(" Contact not found in your book.")
 
     def save_contact(self,filename ):
-       with open("contact.json","w" ) as f:
+       with open(DATA_FILE, "w") as f:
           json.dump(self.contacts, f , indent=4)
      
     def load_contact(self):
        try:
-        with open("contact.json", "r") as f:
+        with open(DATA_FILE, "r") as f:
           self.contacts = json.load(f)
        except (FileNotFoundError, json.JSONDecodeError):
         self.contacts = []
@@ -73,7 +76,7 @@ def main():
             elif choice == 4 :
                contact.search_contact()
             elif choice == 5 :
-               contact.save_contact("contact.json")
+               contact.save_contact(DATA_FILE)
                print("Contact Saving")
                break
             else:
@@ -89,4 +92,3 @@ if __name__ == "__main__":
           
           
     
-

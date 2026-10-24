@@ -1,5 +1,8 @@
 import json
 import datetime
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "library_data.json"
 
 class LibraryManagementSystem:
     def __init__(self):
@@ -85,7 +88,7 @@ class LibraryManagementSystem:
 
 def main():
     library = LibraryManagementSystem()
-    library.load_library("library_data.json")
+    library.load_library(DATA_FILE)
 
     while True:
         print("\n--- Library Management System ---")
@@ -108,7 +111,7 @@ def main():
         elif choice == 5:
             library.return_book()
         elif choice == 6:
-            library.save_library("library_data.json")
+            library.save_library(DATA_FILE)
             print("Library data saved. Exiting...")
             break
         else:

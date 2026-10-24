@@ -1,4 +1,5 @@
 import sys
+from pathlib import Path
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt5.QtCore import QTimer, QTime, Qt
 from PyQt5.QtGui import QFont ,QFontDatabase
@@ -23,7 +24,9 @@ class DigitalClock(QWidget):
         "border: 2px solid Gray;" \
         "border-radius: 10px;" \
         "padding: 10px;")
-        font = QFontDatabase.addApplicationFont("DS-DIGIT.TTF")
+        font = QFontDatabase.addApplicationFont(
+            str(Path(__file__).resolve().parent / "DS-DIGIT.TTF")
+        )
         FONT_FAMILY = QFontDatabase.applicationFontFamilies(font)[0]
         MY_FONT = QFont(FONT_FAMILY, 48)
         self.time_label.setFont(MY_FONT)

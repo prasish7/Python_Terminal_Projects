@@ -1,4 +1,7 @@
 import json
+from pathlib import Path
+
+DATA_FILE = Path(__file__).resolve().parent / "Grocery_List.json"
 
 def add_item(grocery_list, item):
     grocery_list.append(item)
@@ -14,11 +17,11 @@ def mark_unpurchased(grocery_list, item):
     grocery_list[index] = item.replace(" (purchased)", "")
 
 def save_list(grocery_list, filename):
-    with open("Grocery_List.json", 'w') as f:
+    with open(DATA_FILE, 'w') as f:
         json.dump(grocery_list, f)
 
 def load_list(filename):
-    with open("Grocery_List.json", 'r') as f:
+    with open(DATA_FILE, 'r') as f:
         return json.load(f)
     
 def display_list(grocery_list):
@@ -73,10 +76,10 @@ def main():
             else:
                 print(f'Item "{item}" not found in the grocery list or is not marked as purchased.')
         elif choice == 6:
-            save_list(grocery_list, "Grocery_List.json")
+            save_list(grocery_list, DATA_FILE)
             print("Grocery list saved.")
         elif choice == 7:
-            grocery_list = load_list("Grocery_List.json")
+            grocery_list = load_list(DATA_FILE)
             print("Grocery list loaded.")
         elif choice == 8:
             is_running = False
@@ -86,5 +89,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
