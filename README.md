@@ -1,4 +1,4 @@
-# Python Terminal Projects
+﻿# Python Terminal Projects
 
 A collection of small Python projects for practicing games, calculators,
 file-backed utilities, APIs, and desktop interfaces. Most programs are
@@ -139,9 +139,12 @@ can be added after choosing representative demo inputs.
 
 | Project | Preview |
 | --- | --- |
-| Connect Four | [![Connect Four terminal preview](./screenshots/connect-four.svg)](./screenshots/connect-four.svg) |
 | Digital Clock | [![Digital Clock screenshot](./screenshots/Digital%20Clock.png)](./screenshots/Digital%20Clock.png) |
 | Weather App | [![Weather App screenshot](./screenshots/Weather%20app.png)](./screenshots/Weather%20app.png) |
+| Library Management System | [![Library Management System screenshot](./screenshots/libary%20management.png)](./screenshots/libary%20management.png) |
+| Blackjack | [![Blackjack screenshot](./screenshots/BlackJack.png)](./screenshots/BlackJack.png) |
+| To-Do List | [![To-Do List screenshot](./screenshots/To%20doList.png)](./screenshots/To%20doList.png) |
+| Expense Tracker | [![Expense Tracker screenshot](./screenshots/expense%20tracker.png)](./screenshots/expense%20tracker.png) |
 
 Click a preview to open the full-size image. The Connect Four preview is a
 repository-safe illustration; the Digital Clock and Weather App images are
